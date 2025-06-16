@@ -1,48 +1,23 @@
-# 🚨 HR Analytics - Predict Employee Attrition
+HR Analytics - Predicting Employee AttritionProject ObjectiveThe primary objective of this project is to leverage data analytics to understand the main causes of employee resignation (attrition) and to build a predictive model for future attrition. By identifying key factors influencing attrition, this project aims to provide actionable insights for developing effective attrition prevention strategies.DeliverablesThis project delivers the following key components:Power BI Dashboard: An interactive dashboard for visualizing attrition factors and exploring data insights.Model Accuracy Report + Confusion Matrix: A detailed report on the performance of the classification model.PDF of Attrition Prevention Suggestions: Data-driven recommendations to mitigate employee attrition.Tools and TechnologiesPython:Pandas: For data manipulation and analysis (EDA).Seaborn: For advanced data visualization during EDA.Scikit-learn (sklearn): For building and evaluating the classification model (Decision Tree).SHAP (SHapley Additive exPlanations): For interpreting model predictions and understanding feature importance.Power BI: For creating interactive and dynamic visualizations of attrition factors.Data SourceThe analysis is based on the WA_Fn-UseC_-HR-Employee-Attrition.csv dataset, which contains comprehensive HR data for a fictional company.Project Structure.
+├── WA_Fn-UseC_-HR-Employee-Attrition.csv  (Raw Dataset)
+├── eda.ipynb                              (Jupyter Notebook for Exploratory Data Analysis)
+├── classification_model.ipynb             (Jupyter Notebook for Model Building and SHAP Analysis)
+├── HR_Attrition_Dashboard.pbix            (Power BI Dashboard File)
+├── Model_Performance_Report.txt           (Optional: Text file for Accuracy and Confusion Matrix)
+├── Attrition_Prevention_Suggestions.pdf   (PDF document)
+├── images/                                (Folder for screenshots and project visuals)
+│   ├── powerbi_dashboard_overview.png
+│   ├── shap_summary_plot.png
+│   └── ... (other relevant screenshots)
+└── README.md                              (This file)
+Mini Guide: Project Steps & How to Run1. Perform EDA on HR DataLocation: eda.ipynbInitial Exploratory Data Analysis (EDA) was performed to understand the dataset's structure, identify patterns, and uncover potential drivers of attrition. The eda.ipynb notebook includes visualizations and statistical summaries to analyze:Department-wise Attrition: Attrition rates across different departments.Salary Bands: Relationship between MonthlyIncome and attrition.Promotions: Impact of YearsSinceLastPromotion on attrition.Other Relevant Factors: Detailed analysis of JobRole, OverTime, MaritalStatus, Age, JobSatisfaction, EnvironmentSatisfaction, RelationshipSatisfaction, WorkLifeBalance, JobInvolvement, and various tenure-related fields (YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion, YearsWithCurrManager).To view EDA: Open eda.ipynb in a Jupyter environment (e.g., Jupyter Notebook, JupyterLab, VS Code with Jupyter extension).2. Build a Classification Model (Decision Tree)Location: classification_model.ipynbA Decision Tree Classifier was implemented to predict employee attrition. The key steps and results from classification_model.ipynb are:Data Preprocessing: Categorical variables were encoded using pd.get_dummies, and irrelevant columns (EmployeeNumber, EmployeeCount, Over18, StandardHours) were dropped. The Attrition column was mapped to numerical values (Yes: 1, No: 0).Data Splitting: The dataset was split into training and testing sets (70% train, 30% test) with stratify=y to maintain the class distribution.Model Training: A DecisionTreeClassifier with random_state=42 and max_depth=5 was trained on the X_train and y_train data.Prediction: The trained model made predictions on the X_test set.Model Performance & Evaluation:The classification_model.ipynb outputs the following performance metrics:Confusion Matrix:[[339  31]
+ [ 53  18]]
+This indicates:339 correct predictions for 'No' attrition (True Negatives).18 correct predictions for 'Yes' attrition (True Positives).31 incorrect predictions (False Positives - predicted 'Yes' but was 'No').53 incorrect predictions (False Negatives - predicted 'No' but was 'Yes').Classification Report:              precision    recall  f1-score   support
 
-![Attrition Dashboard](dashboard.png) 
+          0       0.86      0.92      0.89       370
+          1       0.37      0.25      0.30        71
 
-This project focuses on analyzing employee attrition using a combination of machine learning, exploratory data analysis (EDA), and interactive dashboards. It aims to uncover the key factors that lead to employee turnover and provides a comprehensive, data-driven framework for understanding and addressing these issues.
-
----
-
-## 📌 Project Summary
-
-- 🔍 **Objective**: Predict why employees leave and recommend strategies to reduce attrition.
-- 📈 **Model**: Decision Tree Classifier (81% Accuracy)
-- 🧠 **Interpretability**: SHAP values for model explanation
-- 📊 **Visualization**: Interactive Power BI Dashboard
-- 📄 **Recommendations**: Actionable suggestions based on EDA and model outputs
-
----
-
-## 📂 Folder Structure
-
-├── classification_model.ipynb # Model training and evaluation
-├── eda.ipynb # Exploratory Data Analysis
-├── WA_Fn-UseC_-HR-Employee-Attrition.csv # Main dataset
-├── hr_analytics.pdf # Power BI visual summary
-├── attrition prevention suggestions.pdf # Actionable strategy document
-├── HR_Analytics_Report.pdf # Final report (overview + results)
-└── README.md
-
-
----
-
-## ⚙️ Tech Stack
-
-- **Python**: pandas, seaborn, scikit-learn, SHAP
-- **Power BI**: Dashboards for HR metrics and attrition factors
-- **Jupyter Notebook**: For analysis and model building
-
----
-
-## 📊 Key Features
-
-- Predict employee attrition with 81% accuracy.
-- Identify top reasons for attrition (e.g., overtime, low income, lack of promotion).
-- SHAP analysis to explain individual model decisions.
-- Interactive dashboards to explore trends by department, job role, etc.
-- Strategy recommendations to reduce attrition.
-
----
+   accuracy                           0.81       441
+  macro avg       0.62      0.58      0.59       441
+weighted avg       0.78      0.81      0.79       441
+Accuracy Score: 0.81 (or 81%)To view Model Building & Report: Open classification_model.ipynb to inspect the code for model training, evaluation, and the generated performance metrics.3. Visualize Attrition Factors using Power BILocation: HR_Attrition_Dashboard.pbixAn interactive and visually comprehensive Power BI dashboard has been designed to effectively communicate insights into employee attrition. This dashboard leverages the cleaned data and insights from the EDA to highlight key attrition drivers. It includes visuals such as:Overall Employee Attrition RateAttrition by DepartmentAttrition by Job RoleAttrition by Marital StatusImpact of Overtime on AttritionAttrition by Age GroupAverage Monthly Income of Attrited vs. Non-Attrited EmployeesEmployee Tenure vs. Attrition StatusInteractive Slicers for various dimensions.Power BI Dashboard Overview:(Replace images/powerbi_dashboard_overview.png with the actual link to your hosted Power BI dashboard screenshot on GitHub.)To view the Power BI Dashboard:Ensure you have Power BI Desktop installed on your system.Open the HR_Attrition_Dashboard.pbix file directly using Power BI Desktop.4. Perform SHAP Value AnalysisLocation: classification_model.ipynbSHAP (SHapley Additive exPlanations) values were computed to interpret the predictions of the Decision Tree model. This technique provides transparency by:Identifying Feature Importance: Determining which features contribute most significantly to the model's overall output.Explaining Individual Predictions: Showing how each feature's value pushes the prediction for a specific employee higher or lower.Understanding Feature Impact: Revealing the magnitude and direction (positive or negative) of each feature's influence on the attrition prediction.The classification_model.ipynb notebook includes the code to calculate SHAP values and is designed to save a shap_attrition_long.csv file, which is suitable for Power BI visualization. To generate this file, ensure the relevant cell in the classification_model.ipynb notebook is executed.SHAP Summary Plot (Feature Importance):(Replace images/shap_summary_plot.png with the actual link to your hosted SHAP summary plot screenshot from your notebook or Power BI on GitHub.)To view SHAP Analysis: The SHAP analysis code and instructions for preparing the data for Power BI are integrated into the classification_model.ipynb notebook.Key Findings and Insights(This section should be populated with specific findings once your Power BI dashboard is complete and you've analyzed the SHAP outputs. Based on the provided notebook outputs, here are some initial points you can expand upon):Overall Accuracy: The Decision Tree model achieves an overall accuracy of 81%. However, the classification report reveals a significant imbalance in predicting 'Yes' (attrition), leading to lower precision (0.37) and recall (0.25) for this class.Strong Performance for Non-Attrition (Class 0): The model performs much better for predicting 'No' attrition ('0'), with high precision (0.86) and recall (0.92).Top Attrition Drivers (from SHAP/EDA - to be detailed after Power BI visualization): Expect to highlight features like Overtime, Monthly Income, Years at Company, and Job Satisfaction as significant indicators of attrition, as confirmed by your visualizations.Attrition Prevention SuggestionsBased on the comprehensive insights derived from the EDA, Power BI dashboard, and SHAP analysis, a set of actionable recommendations to mitigate employee attrition has been compiled. These suggestions are detailed in the Attrition_Prevention_Suggestions.pdf document and aim to address the identified root causes of employee turnover.Future EnhancementsModel Improvement: Focus on improving the model's performance for the minority class ('Yes' attrition) using resampling techniques (e.g., SMOTE) or ensemble methods (e.g., Random Forest, Gradient Boosting) and hyperparameter tuning.Advanced SHAP Visualizations in Power BI: Incorporate the shap_attrition_long.csv data into Power BI to create interactive SHAP plots, allowing users to explore feature impacts more dynamically.What-If Analysis: Develop a simple tool (e.g., in Python or a Power BI parameter) to allow users to see how changing certain employee characteristics might affect their predicted attrition risk.Time-Series Analysis: If historical attrition data is available, perform time-series analysis to identify trends and seasonality in attrition.
