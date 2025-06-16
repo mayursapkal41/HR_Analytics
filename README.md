@@ -85,8 +85,6 @@ Based on the EDA and SHAP analysis, the following actionable strategies were dev
 - Offer hybrid or remote work options
 - Limit unnecessary business travel through virtual alternatives
 
-📄 *For full strategy documentation, refer to [`attrition prevention suggestions.pdf`](attrition%20prevention%20suggestions.pdf)*
-
 ---
 
 ## ⚙️ Tools & Technologies
