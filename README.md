@@ -89,20 +89,6 @@ Based on the EDA and SHAP analysis, the following actionable strategies were dev
 
 ---
 
-## 🗂️ Project Structure
-
-📁 project-root/
-├── eda.ipynb # Exploratory Data Analysis
-├── classification_model.ipynb # ML model training and SHAP analysis
-├── WA_Fn-UseC_-HR-Employee-Attrition.csv # HR dataset
-├── hr_analytics.pdf # Power BI dashboard screenshots
-├── attrition prevention suggestions.pdf # Recommendations based on analysis
-├── HR_Analytics_Report.pdf # Final report and summary
-└── README.md 
-
-
----
-
 ## ⚙️ Tools & Technologies
 
 | Tool | Purpose |
